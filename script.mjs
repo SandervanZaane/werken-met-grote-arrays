@@ -19,7 +19,18 @@ console.log(filtered);
 
 // console.log(result)
 
+// add to dom
 
+filtered.forEach(person => {
+    const ul = document.getElementById("matchmaking");
+    const li = document.createElement("li");
+    const textHolder = document.createTextNode(`${person.name} ${person.surname}, ${person.age}, ${person.region} `);
+    const img = document.createElement(`img`);
+    img.src = person.photo;
+    ul.appendChild(li);
+    li.appendChild(textHolder);
+    li.appendChild(img);
+});
 
 
 // const addListOnClick = document.getElementById("matchMaking").addEventListener("click", function showSorted()
