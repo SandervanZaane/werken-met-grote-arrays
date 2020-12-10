@@ -21,8 +21,13 @@ console.log(filtered);
 
 // add to dom
 
+/**
+ * 
+ * @param birthday accepts a string in MM/DD/YYYY format.
+ */
 const getZodiacNameFromBirthday = birthday => {
-    const date = new Date(birthday.mdy)
+    const date = new Date(birthday)
+        // copied from https://medium.com/@Saf_Bes/get-the-zodiac-sign-for-a-date-in-javascript-797305d75869 :
     const signs = ['Aries: The Ram', 'Taurus: The Bull', 'Gemini: The Twins', 'Cancer: The Crab', 'Leo: The Lion', 'Virgo: The Virgin', 'Libra: The Scales', 'Scorpio: The Scorpion', 'Sagittarius: The Archer', 'Capricorn: The Goat', 'Aquarius: The Water Bearer', 'Pisces: The Fish'];
     const sign = Number(new Intl.DateTimeFormat('fr-TN-u-ca-persian', { month: 'numeric' }).format(date) - 1);
     return signs[sign]
@@ -31,11 +36,20 @@ const getZodiacNameFromBirthday = birthday => {
 filtered.forEach(person => {
     const ul = document.getElementById("matchmaking");
     const li = document.createElement("li");
-    const zodiac = getZodiacNameFromBirthday(person.birthday);
+    const zodiac = getZodiacNameFromBirthday(person.birthday.mdy);
     const textHolder = document.createTextNode(`${person.name} ${person.surname}, ${person.age}, ${person.region} ${zodiac}`);
     const img = document.createElement(`img`);
+    const button = document.createElement(`button`);
+    const buttonText = document.createTextNode(`Vind een match voor mij!`)
     img.src = person.photo;
     ul.appendChild(li);
     li.appendChild(textHolder);
     li.appendChild(img);
+    li.appendChild(button);
+    button.appendChild(buttonText);
+    li.id = person.email;
 });
+
+const d = new Date();
+
+console.log(d);
