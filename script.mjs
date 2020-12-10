@@ -33,6 +33,8 @@ const getZodiacNameFromBirthday = birthday => {
     return signs[sign]
 }
 
+
+
 filtered.forEach(person => {
     const ul = document.getElementById("matchmaking");
     const li = document.createElement("li");
@@ -47,9 +49,27 @@ filtered.forEach(person => {
     li.appendChild(img);
     li.appendChild(button);
     button.appendChild(buttonText);
-    li.id = person.email;
+    button["data-email"] = person.email;
+    button["data-zodiac"] = person.zodiac;
+    button.addEventListener("click", onButtonClick);
 });
 
 const d = new Date();
 
 console.log(d);
+
+// Id on click to DOM
+function onButtonClick(e) {
+    console.log(e.target["data-email"]);
+
+    // filterd withZodiac hier uitvoeren
+
+};
+
+
+
+
+
+/// Eventlistner on button click
+
+/// FilterdWith
