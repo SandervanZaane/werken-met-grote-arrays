@@ -59,12 +59,12 @@ const d = new Date();
 console.log(d);
 
 // filtered bij Zodiac
-
-
+const filteredByZodiac = filtered.map(person => person.zodiac === e.target["data-zodiac"]);
 
 // Id on click to DOM
 function onButtonClick(e) {
     console.log(e.target["data-email"]);
+    console.log(e.target["data-zodiac"]);
     const divToRemove = document.getElementById("matchmaking").remove();
 
     filteredByZodiac.forEach(person => {
@@ -74,7 +74,6 @@ function onButtonClick(e) {
             li.appendChild(ul);
             textHolder.appendChild(li);
         };
-
     });
 };
 
