@@ -63,9 +63,7 @@ function onButtonClick(e) {
     console.log(e.target["data-email"]);
     const divToRemove = document.getElementById("matchmaking").remove();
 
-
     filtered.forEach(person => {
-
 
         function filterByZodiac() {
             const ul = document.getElementById("title");
