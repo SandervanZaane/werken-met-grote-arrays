@@ -58,24 +58,22 @@ const d = new Date();
 
 console.log(d);
 
+// filtered bij Zodiac
+
+
+
 // Id on click to DOM
 function onButtonClick(e) {
     console.log(e.target["data-email"]);
     const divToRemove = document.getElementById("matchmaking").remove();
 
     filteredByZodiac.forEach(person => {
-        const filterByZodiac = (arr) => {
-
-            for
-            arr.filter
-            for loop
-
             const ul = document.getElementById("title");
             const li = document.createElement("li");
             const textHolder = document.createTextNode(`${person.name} ${person.surname}, ${person.age}, ${person.region} ${zodiac}`);
+            li.appendChild(ul);
+            textHolder.appendChild(li);
         };
-
-        filterByZodiac(filtered);
 
     });
 };
