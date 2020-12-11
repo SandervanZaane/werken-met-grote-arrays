@@ -63,12 +63,16 @@ function onButtonClick(e) {
     console.log(e.target["data-email"]);
     const divToRemove = document.getElementById("matchmaking").remove();
 
-    filtered.forEach(person => {
+    filteredByZodiac.forEach(person => {
+        const filterByZodiac = (arr) => {
 
-        function filterByZodiac() {
+            for
+            arr.filter
+            for loop
+
             const ul = document.getElementById("title");
             const li = document.createElement("li");
-            const text = document.createTextNode("tekst succesvol toegevoegd")
+            const textHolder = document.createTextNode(`${person.name} ${person.surname}, ${person.age}, ${person.region} ${zodiac}`);
         };
 
         filterByZodiac(filtered);
