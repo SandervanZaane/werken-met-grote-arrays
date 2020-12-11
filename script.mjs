@@ -61,9 +61,21 @@ console.log(d);
 // Id on click to DOM
 function onButtonClick(e) {
     console.log(e.target["data-email"]);
+    const divToRemove = document.getElementById("matchmaking").remove();
 
-    // filterd withZodiac hier uitvoeren
 
+    filtered.forEach(person => {
+
+
+        function filterByZodiac() {
+            const ul = document.getElementById("title");
+            const li = document.createElement("li");
+            const text = document.createTextNode("tekst succesvol toegevoegd")
+        };
+
+        filterByZodiac(filtered);
+
+    });
 };
 
 
