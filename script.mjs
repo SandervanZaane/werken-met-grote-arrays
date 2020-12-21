@@ -1,8 +1,31 @@
 import randomPersonArr from "./randomPersonData/persons.mjs"
-
+// FUNCTIONS
 // sort by firstname
 const sortPersonsByFirstName = arr => arr.sort((a, b) => a.name < b.name ? -1 : 1);
 //console.log(sortPersonsByFirstName(randomPersonArr));
+
+// Id on click to DOM
+function onButtonClick(e) {
+    console.log(e.target["data-email"]);
+    console.log(e.target["data-zodiac"]);
+
+    function clearMatchmaking() {
+        document.getElementById("matchmaking").remove();
+    };
+    filteredByZodiac.forEach(person => {
+        // filter by Zodiac
+        console.log("filter werkt")
+        clickedEmail = e.target["data-email"];
+        clickedZodiac = e.target["data-zodiac"];
+        const filterByZodiac = filtered.map(person => person.zodiac === clickedEmail);
+        const ul = document.getElementById("title");
+        const li = document.createElement("li");
+        const textHolder = document.createTextNode(`${person.name} ${person.surname}, ${person.age}, ${person.region} ${zodiac}`);
+        li.appendChild(ul);
+        textHolder.appendChild(li);
+    })
+    filteredByZodiac(filtered);
+};
 
 const sorted = sortPersonsByFirstName(randomPersonArr);
 
@@ -32,8 +55,7 @@ const getZodiacNameFromBirthday = birthday => {
     const sign = Number(new Intl.DateTimeFormat('fr-TN-u-ca-persian', { month: 'numeric' }).format(date) - 1);
     return signs[sign]
 }
-
-
+console.log(getZodiacNameFromBirthday);
 
 filtered.forEach(person => {
     const ul = document.getElementById("matchmaking");
@@ -58,29 +80,6 @@ const d = new Date();
 
 console.log(d);
 
-// filtered bij Zodiac
-const filteredByZodiac = filtered.map(person => person.zodiac === e.target["data-zodiac"]);
-
-// Id on click to DOM
-function onButtonClick(e) {
-    console.log(e.target["data-email"]);
-    console.log(e.target["data-zodiac"]);
-    const divToRemove = document.getElementById("matchmaking").remove();
-
-    filteredByZodiac.forEach(person => {
-            const ul = document.getElementById("title");
-            const li = document.createElement("li");
-            const textHolder = document.createTextNode(`${person.name} ${person.surname}, ${person.age}, ${person.region} ${zodiac}`);
-            li.appendChild(ul);
-            textHolder.appendChild(li);
-        };
-    });
-};
 
 
-
-
-
-/// Eventlistner on button click
-
-/// FilterdWith
+//
