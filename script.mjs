@@ -1,29 +1,27 @@
 import randomPersonArr from "./randomPersonData/persons.mjs"
-// FUNCTIONS
+
 // sort by firstname
 const sortPersonsByFirstName = arr => arr.sort((a, b) => a.name < b.name ? -1 : 1);
-//console.log(sortPersonsByFirstName(randomPersonArr));
 
 // Id on click to DOM
 function onButtonClick(e) {
     console.log(e.target["data-email"]);
-    console.log(e.target["data-zodiac"]);
 
     function clearMatchmaking() {
         document.getElementById("matchmaking").remove();
     };
-    filteredByZodiac.forEach(person => {
-        // filter by Zodiac
+    let withZodiacs = filtered.forEach(person => {
         console.log("filter werkt")
-        clickedEmail = e.target["data-email"];
+        const clickedEmail = e.target["data-email"];
         clickedZodiac = e.target["data-zodiac"];
-        const filterByZodiac = filtered.map(person => person.zodiac === clickedEmail);
+        filterByZodiac = filtered.map(person => person.zodiac === clickedEmail);
         const ul = document.getElementById("title");
         const li = document.createElement("li");
-        const textHolder = document.createTextNode(`${person.name} ${person.surname}, ${person.age}, ${person.region} ${zodiac}`);
+        const textHolder = document.createTextNode(`${person.name} ${person.surname}, ${person.age}, ${person.region}, ${person.zodiac}`);
         li.appendChild(ul);
         textHolder.appendChild(li);
-    })
+    });
+
     filteredByZodiac(filtered);
 };
 
@@ -75,11 +73,3 @@ filtered.forEach(person => {
     button["data-zodiac"] = person.zodiac;
     button.addEventListener("click", onButtonClick);
 });
-
-const d = new Date();
-
-console.log(d);
-
-
-
-//
